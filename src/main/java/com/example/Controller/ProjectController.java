@@ -38,7 +38,7 @@ public class ProjectController {
 
 
         @PutMapping("/status/{index}")
-        public Api changeProjectStatus(@PathVariable int index, @RequestParam boolean status) {
+        public Api changeProjectStatus(@PathVariable int index){
             Project project = projects.get(index);
             if (project.getStatus().equalsIgnoreCase("not Done"))
             { project.setStatus("done")
