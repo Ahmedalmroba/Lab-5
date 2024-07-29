@@ -50,24 +50,26 @@ public class StudentController {
         }
         return new ApiResponse("Student not found");
     }
-    @GetMapping("/name")
-    public String getName() {
-        return "ahmed almroba";
+    @GetMapping("/name/{index}")
+    public String getName(@PathVariable int index) {
+        return students.get(index).getName();
+        
     }
 
     @GetMapping("/age")
-    public String getAge() {
-        return "25";
+    public String getAge(@PathVariable int index) {
+        return students.get(index).getAge();
     }
 
     @GetMapping("/college/degree")
-    public String getDegree() {
-        return "Bachelor computer science";
+    public String getDegree(@PathVariable int index) {
+        return students.get(index).getDegree();
     }
 
     @GetMapping("/study/status")
-    public boolean getStudyStatus() {
-        return true;
+    public boolean getStudyStatus(@PathVariable int index) {
+        return students.get(index).getStatus().equalsIgnoreCase("graduated");
+       
     }
 
     @GetMapping("/names")
